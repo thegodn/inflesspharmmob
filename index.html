@@ -6,19 +6,25 @@
     <title>Mobil Eczane Listesi</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        body, html {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
+            height: 100%;
             background-color: #f0f0f0;
         }
         .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             padding: 10px;
+            box-sizing: border-box;
         }
         h1 {
             text-align: center;
             color: #333;
             font-size: 24px;
+            margin-top: 0;
         }
         .search-container {
             margin-bottom: 15px;
@@ -31,9 +37,15 @@
             border-radius: 5px;
             font-size: 16px;
         }
+        .eczane-list-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
         .eczane-list {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
         .eczane-item {
             background-color: #fff;
@@ -76,9 +88,11 @@
             </select>
             <input type="text" id="kelime-ara" placeholder="Eczane adı ile ara">
         </div>
-        <ul class="eczane-list" id="eczane-listesi">
-            <!-- Eczaneler burada dinamik olarak listelenecek -->
-        </ul>
+        <div class="eczane-list-container">
+            <ul class="eczane-list" id="eczane-listesi">
+                <!-- Eczaneler burada dinamik olarak listelenecek -->
+            </ul>
+        </div>
     </div>
 
     <script>
